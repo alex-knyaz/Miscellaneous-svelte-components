@@ -6,16 +6,18 @@
 
   let mouseOver = (event) => {
     isHovered = true;
-    x = event.pageX + 5;
-    y = event.pageY + 5;
+    x = event.clientX + 5;
+    y = event.clientY + 5;
   };
   let mouseMove = (event) => {
-    x = event.pageX + 5;
-    y = event.pageY + 5;
+    x = event.clientX + 5;
+    y = event.clientY + 5;
   };
   let mouseLeave = () => {
     isHovered = false;
   };
+
+  // $: console.log()
   // [ ] window border !!!
 </script>
 
