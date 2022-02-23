@@ -9,7 +9,7 @@ How to use
 I recommend to just copy code file of component you are going to use in your project.
 Because you often need to modify it to suite your needs or style.
 
-DEMO
+[DEMO](https://alex-knyaz.github.io/Miscellaneous-svelte-components/)
 ---
 
 [RadioButtonGroup](src/RadioButtonGroup.svelte)
