@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
     'use strict';
 
@@ -1178,8 +1178,8 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			t = text(/*value*/ ctx[0]);
-    			attr_dev(span, "class", "svelte-90hj3n");
-    			add_location(span, file$2, 24, 0, 615);
+    			attr_dev(span, "class", "svelte-rdey8k");
+    			add_location(span, file$2, 30, 0, 729);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1229,18 +1229,23 @@ var app = (function () {
     	let { scale = 0.05 } = $$props;
     	let { value } = $$props;
     	let true_value = value;
+    	let old_x;
 
     	let handle_move = e => {
-    		true_value += e.movementX * scale * step;
+    		let movement_x = e.screenX - old_x;
+    		old_x = e.screenX;
+    		true_value += movement_x * scale * step;
     		$$invalidate(0, value = Math.max(Math.min(Math.round(true_value), max), min));
     	};
 
     	let handle_down = e => {
+    		old_x = e.screenX;
     		e.target.setPointerCapture(e.pointerId);
     		e.target.addEventListener("pointermove", handle_move);
     	};
 
     	let handle_up = e => {
+    		old_x = 0;
     		e.target.releasePointerCapture(e.pointerId);
     		e.target.removeEventListener("pointermove", handle_move);
     		true_value = value;
@@ -1267,6 +1272,7 @@ var app = (function () {
     		scale,
     		value,
     		true_value,
+    		old_x,
     		handle_move,
     		handle_down,
     		handle_up
@@ -1279,6 +1285,7 @@ var app = (function () {
     		if ('scale' in $$props) $$invalidate(6, scale = $$props.scale);
     		if ('value' in $$props) $$invalidate(0, value = $$props.value);
     		if ('true_value' in $$props) true_value = $$props.true_value;
+    		if ('old_x' in $$props) old_x = $$props.old_x;
     		if ('handle_move' in $$props) handle_move = $$props.handle_move;
     		if ('handle_down' in $$props) $$invalidate(1, handle_down = $$props.handle_down);
     		if ('handle_up' in $$props) $$invalidate(2, handle_up = $$props.handle_up);
