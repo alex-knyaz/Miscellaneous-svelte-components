@@ -12,6 +12,22 @@ Because you often need to modify it to suite your needs or style.
 [DEMO](https://alex-knyaz.github.io/Miscellaneous-svelte-components/)
 ---
 
+[Knob](src/Knob.svelte)
+---
+
+![gif](https://user-images.githubusercontent.com/52626785/163074913-2d8d1988-92c1-4ccd-8f81-423caf516831.gif)
+
+```svelte
+<script>
+  import Knob from "../../src/Knob.svelte";
+  let knob = 4;
+</script>
+
+<Knob bind:value />
+<br />
+value: {value}
+```
+
 [RadioButtonGroup](src/RadioButtonGroup.svelte)
 ---
 
@@ -79,3 +95,4 @@ Do not forget to deploy target folder to `gh-pages` branch.
 ```sh
 git subtree push --prefix demo/public origin gh-pages
 ```
+
