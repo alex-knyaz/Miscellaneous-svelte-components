@@ -1,4 +1,7 @@
 <script>
+  import Knob from "../../src/Knob.svelte";
+  let knob_value = 4;
+
   import RadioButtonGroup from "../../src/RadioButtonGroup.svelte";
   let value = 10;
 
@@ -11,6 +14,13 @@
 </script>
 
 <main>
+  <h2>Knob</h2>
+  <section>
+    <Knob bind:value={knob_value} />
+    <br />
+    value: {knob_value}
+  </section>
+
   <h2>RadioButtonGroup</h2>
   <section>
     <RadioButtonGroup
