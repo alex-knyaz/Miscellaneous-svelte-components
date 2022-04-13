@@ -73,3 +73,9 @@ value: {value}
       <div>hover pointer here</div>
 </Tooltip>
 ```
+
+## Deployment note:
+Do not forget to deploy target folder to `gh-pages` branch.
+```sh
+git subtree push --prefix demo/public origin gh-pages
+```
